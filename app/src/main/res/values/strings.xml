@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NotificationsGallery</string>
+    <string name="basic_notification">Basic Notification</string>
 </resources>
