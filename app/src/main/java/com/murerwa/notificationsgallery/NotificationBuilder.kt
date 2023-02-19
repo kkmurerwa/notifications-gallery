@@ -9,6 +9,7 @@ import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import com.murerwa.notificationsgallery.NotificationType.*
 
 class NotificationBuilder(
     private val context: Context,
@@ -27,28 +28,26 @@ class NotificationBuilder(
         }
 
         // Create notification builder based on notification type
-//        val notificationBuilder: NotificationCompat.Builder = when (notificationData.notificationType) {
-//            GENERAL -> {
-//                getTextMessageNotificationBuilder()
-//            }
-//            TEXT_MESSAGE -> {
-//                getTextMessageNotificationBuilder()
-//            }
-//            IMAGE_MESSAGE -> {
-//                getGeneralNotificationBuilder()
-//            }
-//            UPLOAD_DOWNLOAD -> {
-//                getGeneralNotificationBuilder()
-//            }
-//            PATIENT_UPDATE -> {
-//                getGeneralNotificationBuilder()
-//            }
-//            CALENDAR_EVENT -> {
-//                getGeneralNotificationBuilder()
-//            }
-//        }
-
-        val notificationBuilder: NotificationCompat.Builder = getGeneralNotificationBuilder()
+        val notificationBuilder: NotificationCompat.Builder = when (notificationData.notificationType) {
+            GENERAL -> {
+                getTextMessageNotificationBuilder()
+            }
+            TEXT_MESSAGE -> {
+                getTextMessageNotificationBuilder()
+            }
+            IMAGE_MESSAGE -> {
+                getGeneralNotificationBuilder()
+            }
+            UPLOAD_DOWNLOAD -> {
+                getGeneralNotificationBuilder()
+            }
+            PATIENT_UPDATE -> {
+                getGeneralNotificationBuilder()
+            }
+            CALENDAR_EVENT -> {
+                getGeneralNotificationBuilder()
+            }
+        }
 
         //Display notification
         notificationManager.notify(notificationData.id, notificationBuilder.build())
